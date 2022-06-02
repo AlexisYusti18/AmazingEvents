@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="icon" href="../assets/logo_favicon.png" type="image/png">
+    <title>Stats</title>
+</head>
+<body>
+  <header>
+    <div class="container-fluid">
+        <div class="row justify-content-between align-items-center">
+          <div class="col col-4 col-xxl-6 col-xl-3 col-lg-4">
+            <img class="logo" src="../assets/logo.png" alt="">
+          </div>
+          <div class="col col-4 col-xxl-6 col-xl-7 col-lg-8">
+            <nav class="navbar navbar-expand-lg navbar-light">
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
+                
+                <div class="navbar-nav">
+                  <a class="btn-lg" href="../index.html">Home</a>
+                  <a class="btn-lg" href="../pages/pastEvents.html">PastEvents</a>
+                  <a class="btn-lg" href="../pages/upcomingEvents.html">UpcomingEvents</a>
+                  <a class="btn-lg" href="../pages/contact.html">contact</a>
+                  <a class="btn-lg" href="#">stats</a>
+                  </div>
+                </div>
+            </nav>
+          </div>
+       </div>
+ 
+    </div>
+</header>
+  <main>
+    <div class="nav-main">
+      <div class="h2-a">
+        <div>
+          <a href="../pages/contact.html"><img class="flecha" src="../assets/flecha-atras.png" alt=""></a>
+        </div>
+        <div>
+          <h2>Stats</h2>
+        </div>
+        <div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="table-div">
+    <div class="tabla">
+      <table class="table">
+        <colgroup>
+          <col span="2" class="dar-largo">
+          <col span="1" class="largo">
+        </colgroup>
+        <thead>
+          <tr>
+            <th colspan="3">Events statistics</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="dar-bordes">Event with the highest percentage of attendance</td>
+            <td class="dar-bordes">Event with the lowest percentage of attendance</td>
+            <td class="dar-bordes">Event with larger capacity</td>
+          </tr>
+          <tr id="tablastatics"></tr>
+        </tbody>
+      </table>
+      <table class="table">
+        <colgroup>
+          <col span="2" class="dar-largo">
+          <col span="1" class="largo">
+        </colgroup>
+        <thead>
+          <tr>
+            <th colspan="3">Upcoming events estadistica por categoria</th>
+          </tr>
+        </thead>
+        <tbody id="tablaUpcoming"></tbody>
+      </table>
+      <table class="table">
+        <colgroup>
+          <col span="2" class="dar-largo">
+          <col span="1" class="largo">
+        </colgroup>
+        <thead>
+          <tr>
+            <th colspan="3">Past events estadistica por categoria</th>
+          </tr>
+        </thead>
+        <tbody id="tablePast"></tbody>
+        
+      </table>
+    </div>
+    </div>
+ </main>
+<footer>
+    <div class="container-fluid">
+      <div class="row justify-content-evenly align-items-center">
+        <div class="col-9">
+          <img class="logos-footer" src="../assets/logoinstagram.png" alt="">
+          <img class="logos-footer" src="../assets/logo-facebook.png" alt="">
+          <img class="logos-footer" src="../assets/logo-whatsapp.png" alt="">
+        </div>
+        <div class="col-3">
+          <h5 class="h5-footer">©Alexis Yusti.</h5>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/stats.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
