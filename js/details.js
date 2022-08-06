@@ -15,21 +15,19 @@ async function cardsId(){
         })
         
         var templateHtml=`
-            <div class="cards-contenedor">
-                <div>
-                    <img class="card-img-details" src="${eventos.image}">
-                </div>
+            <div class="card-details">
+                <img class="img-details" src="${eventos.image}">
                 <div class="card-textos">
                     <div class="card-body-details">
                         <div class="h3-titulo">
                             <h3 class="h3-details">${eventos.name}</h3>
                         </div>
-                        <p class="p-details">${eventos.description}</p>
-                        <li class="p-details">Capacity: ${eventos.capacity}</li>
-                        <li class="p-details">Place: ${eventos.place}</li>
-                        <li class="p-details">Assistance: ${eventos.assistance !== undefined ? eventos.assistance:'No attendance data'} </li>
-                        <li class="p-details">Category: ${eventos.category}</li>
-                        <li class="p-details">Estimate: ${eventos.estimate !== undefined ? eventos.estimate:"No estimate data"}</li>
+                        <p class="p-details-des">${eventos.description}</p>
+                        <p class="p-details">Capacity: ${eventos.capacity}</p>
+                        <p class="p-details">Place: ${eventos.place}</p>
+                        <p class="p-details">Assistance: ${eventos.assistance !== undefined ? eventos.assistance:'No attendance data'} </p>
+                        <p class="p-details">Category: ${eventos.category}</p>
+                        <p class="p-details">Estimate: ${eventos.estimate !== undefined ? eventos.estimate:"No estimate data"}</p>
                     </div>
                     <div class="p-details-price">
                         <p class="p-price">Price: $${eventos.price}</p>
