@@ -29,9 +29,9 @@ async function cardsId(){
                         <p class="p-details">Category: ${eventos.category}</p>
                         <p class="p-details">Estimate: ${eventos.estimate !== undefined ? eventos.estimate:"No estimate data"}</p>
                     </div>
-                    <div class="p-details-price">
-                        <p class="p-price">Price: $${eventos.price}</p>
-                    </div>
+                </div>
+                <div class="p-details-price">
+                    <p class="p-price">Price: $${eventos.price}</p>
                 </div>
     
             </div>
