@@ -1,148 +1,121 @@
-let eventos=[]
-let checkedArray=[] 
-let inputSearch='' 
+let eventos = [];
+let checkedArray = [];
+let inputSearch = "";
 
-async function dataFromApi(){
-    await fetch('https://amazing-events.herokuapp.com/api/events')
-    .then(response=> response.json())
-    .then(json=> eventos=json)
-    
-nuevosCheckbox()
+async function dataFromApi() {
+  await fetch("https://amazing-events.herokuapp.com/api/events")
+    .then((response) => response.json())
+    .then((json) => (eventos = json));
 
-var checkboxes=document.querySelectorAll('input[type=checkbox]')
-checkboxes.forEach(checkinput=>checkinput.addEventListener('click', (evento)=>{
-    
-    if(evento.target.checked){
-        checkedArray.push(evento.target.value)
-        filtrado()
-    }
-    else{
-        checkedArray=checkedArray.filter(uncheck=>uncheck !== evento.target.value)
-        filtrado()
-    }
-}))
+  nuevosCheckbox();
 
-filtrado()
-}
-
-dataFromApi()
-
-
-const nuevosCheckbox=()=>{
-    var checkboxes= document.getElementById('checkboxes') 
-    var categoriasAll= eventos.events.map(eventos=>eventos.category) 
-
-    var eliminarRepetidas= new Set(categoriasAll) 
-    var categorias= [...eliminarRepetidas] 
-
-    var inputCheckbox="" 
-    categorias.forEach(category=>{     
-        inputCheckbox+=`
-        <label><input class="busqueda-check" type="checkbox" value="${category}"> ${category}</label> `
-  
-
+  var checkboxes = document.querySelectorAll("input[type=checkbox]");
+  checkboxes.forEach((checkinput) =>
+    checkinput.addEventListener("click", (evento) => {
+      if (evento.target.checked) {
+        checkedArray.push(evento.target.value);
+        filtrado();
+      } else {
+        checkedArray = checkedArray.filter(
+          (uncheck) => uncheck !== evento.target.value
+        );
+        filtrado();
+      }
     })
-    checkboxes.innerHTML=inputCheckbox 
+  );
 
-    var id=1
-    eventos.events.map(eventos=>eventos.id=id++)
-    
+  filtrado();
 }
 
-var input=document.getElementById('search')
-input.addEventListener('keyup', (evento)=>{
-    inputSearch= evento.target.value
-    filtrado()
-})
+dataFromApi();
 
+const nuevosCheckbox = () => {
+  var checkboxes = document.getElementById("checkboxes");
+  var categoriasAll = eventos.events.map((eventos) => eventos.category);
 
-function filtrado(){
-   
-    let arrayCheck=[]
-    if(checkedArray.length>0 && inputSearch !==""){
-        checkedArray.forEach(category=>{
-            arrayCheck.push(...eventos.events.filter(eventos=>eventos.name.toLowerCase().includes(inputSearch.trim().toLowerCase())&& eventos.category==category))
-        })
-    }
-    else if(checkedArray.length>0 && inputSearch ===""){
-        checkedArray.forEach(category=>{
-            arrayCheck.push(...eventos.events.filter(eventos=>eventos.category==category))
-    })
-    }
-    else if(checkedArray.length==0 & inputSearch !==""){
-        arrayCheck.push(...eventos.events.filter(eventos=>eventos.name.toLowerCase().includes(inputSearch.trim().toLowerCase())))
-    }
-    
-    else{arrayCheck.push(...eventos.events)}
-    
-    
-    displayCards(arrayCheck)
-    
+  var eliminarRepetidas = new Set(categoriasAll);
+  var categorias = [...eliminarRepetidas];
+
+  var inputCheckbox = "";
+  categorias.forEach((category) => {
+    inputCheckbox += `
+        <label><input class="busqueda-check" type="checkbox" value="${category}"> ${category}</label> `;
+  });
+  checkboxes.innerHTML = inputCheckbox;
+
+  var id = 1;
+  eventos.events.map((eventos) => (eventos.id = id++));
+};
+
+var input = document.getElementById("search");
+input.addEventListener("keyup", (evento) => {
+  inputSearch = evento.target.value;
+  filtrado();
+});
+
+function filtrado() {
+  let arrayCheck = [];
+  if (checkedArray.length > 0 && inputSearch !== "") {
+    checkedArray.forEach((category) => {
+      arrayCheck.push(
+        ...eventos.events.filter(
+          (eventos) =>
+            eventos.name
+              .toLowerCase()
+              .includes(inputSearch.trim().toLowerCase()) &&
+            eventos.category == category
+        )
+      );
+    });
+  } else if (checkedArray.length > 0 && inputSearch === "") {
+    checkedArray.forEach((category) => {
+      arrayCheck.push(
+        ...eventos.events.filter((eventos) => eventos.category == category)
+      );
+    });
+  } else if ((checkedArray.length == 0) & (inputSearch !== "")) {
+    arrayCheck.push(
+      ...eventos.events.filter((eventos) =>
+        eventos.name.toLowerCase().includes(inputSearch.trim().toLowerCase())
+      )
+    );
+  } else {
+    arrayCheck.push(...eventos.events);
+  }
+
+  displayCards(arrayCheck);
 }
 
-function displayCards(arrayCheck){
-    var cards= document.querySelector('#maincards')
-    var templateHtml=''
-    
-    if(arrayCheck.length !==0 ){
-        for(var i=0; i< arrayCheck.length; i++ ){
-            templateHtml+=`
-            <div class="col-12 col-sm-12 col-md-6 col-xl-4 col-xxl-3 d-flex justify-content-center align-items-center center">
-            <div class="card-borde">
-                <div>
-                <img class="card-img-top" src=${arrayCheck[i].image}>
-                </div>
-                <div class="card-body">
-                    <div class="card-info">
+function displayCards(arrayCheck) {
+  var cards = document.querySelector("#maincards");
+  var templateHtml = "";
+
+  if (arrayCheck.length !== 0) {
+    for (var i = 0; i < arrayCheck.length; i++) {
+      templateHtml += `
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 col-xxl-3 d-flex justify-content-center align-items-center center">
+                <div class="card-borde">
+                    <div class="img-ctn">
+                        <img class="card-img-top" src=${arrayCheck[i].image}>
+                    </div>
+                    <div class="card-body">
                         <h3 class="card-title">${arrayCheck[i].name}</h3>
                         <p class="card-subtitulo">Date: ${arrayCheck[i].date}</p>
-                        
                     </div>
-                </div>
-                <div class="card-price-vermas">
+                    <div class="card-price-vermas">
                         <h4 class="price">$${arrayCheck[i].price}</h4>
                         <a href="../pages/details.html?id=${arrayCheck[i].id}" class="btn-cards">See more</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        `
-        
-        }
+        `;
     }
-    else{
-            cards.innerHTML=templateHtml=` <div class="alert alert-secondary" role="alert">
+  } else {
+    cards.innerHTML =
+      templateHtml = ` <div class="alert alert-secondary" role="alert">
                                              <h3 class="h3-Noresults">THERE ARE NO RESULTS FOR YOUR SEARCH</h3>
-                                        </div>`
-                                    }
-    
-    cards.innerHTML=templateHtml
+                                        </div>`;
+  }
+
+  cards.innerHTML = templateHtml;
 }
-
-
-
-
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  

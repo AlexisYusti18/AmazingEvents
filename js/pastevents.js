@@ -90,16 +90,14 @@ function displayCards(arrayCheck){
     
             templateHtml+=`
             
-            <div class="col-12 col-sm-12 col-md-6 col-xl-4 col-xxl-3 d-flex justify-content-center align-items-center center">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 col-xxl-3 d-flex justify-content-center align-items-center center">
             <div class="card-borde">
-                <div>
-                <img class="card-img-top" src=${arrayCheck[i].image}>
+                <div class="img-ctn">
+                    <img class="card-img-top" src=${arrayCheck[i].image}>
                 </div>
                 <div class="card-body">
-                    <div class="card-info">
                         <h3 class="card-title">${arrayCheck[i].name}</h3>
                         <p class="card-subtitulo">Date: ${arrayCheck[i].date}</p>                        
-                    </div>
                 </div>
                 <div class="card-price-vermas">
                         <h4 class="price">$${arrayCheck[i].price}</h4>
