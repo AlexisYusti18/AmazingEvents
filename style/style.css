@@ -403,10 +403,12 @@ th {
 
 .p-details {
     color: black;
+    font-size: 20px;
 }
 .p-details-des{
     text-align: center;
     width: 50%;
+    font-size: 20px;
 }
 .p-details-price {
     background-color: #d90368;
