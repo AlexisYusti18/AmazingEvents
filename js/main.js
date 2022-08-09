@@ -39,7 +39,7 @@ const nuevosCheckbox = () => {
   var inputCheckbox = "";
   categorias.forEach((category) => {
     inputCheckbox += `
-        <label><input class="busqueda-check" type="checkbox" value="${category}"> ${category}</label> `;
+        <label><input class="busqueda-check" type="radio" value="${category}"> ${category}</label> `;
   });
   checkboxes.innerHTML = inputCheckbox;
 
