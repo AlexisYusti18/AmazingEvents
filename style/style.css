@@ -406,6 +406,7 @@ th {
 }
 .p-details-des{
     text-align: center;
+    width: 50%;
 }
 .p-details-price {
     background-color: #d90368;
