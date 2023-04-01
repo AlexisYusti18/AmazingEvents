@@ -3,7 +3,7 @@ let sortPorcentaje;
 let sortCapacidad;
 
 async function estadisticaEvento(){
-    await fetch('https://amazing-events.herokuapp.com/api/events')
+    await fetch('https://mindhub-xj03.onrender.com/api/amazing')
     .then(response=>response.json())
     .then(json=>eventos=json)
     let datoEventos= eventos.events
