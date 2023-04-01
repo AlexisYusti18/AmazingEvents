@@ -3,10 +3,10 @@ let checkedArray = [];
 let inputSearch = "";
 
 async function dataFromApi() {
-  await fetch("https://mindhub-xj03.onrender.com/api/amazing/events")
+  await fetch("https://mindhub-xj03.onrender.com/api/amazing")
     .then((response) => response.json())
     .then((json) => (eventos = json));
-
+    // console.log(eventos)
   nuevosCheckbox();
 
   var checkboxes = document.querySelectorAll("input[type=checkbox]");
